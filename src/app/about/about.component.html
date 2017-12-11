@@ -1,0 +1,14 @@
+
+<!-- <img [src]="mainLogo" width="200"> -->
+
+<span [innerText] = "title"></span>
+<input type="text" [value]= "title" (input)= "ontextChange($event)">
+<input type="text" [(ngModel)] = "title">
+<button (click)="myEvent()">Button</button >
+
+<span *ngIf="isUserCreated; else elseCreated">{{messageSu}} </span>
+<ng-template #elseCreated>
+    <!-- Else part {{messageSu}} -->
+</ng-template>
+
+

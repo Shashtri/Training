@@ -1,0 +1,54 @@
+<ol class="breadcrumb">
+  <li class="breadcrumb-item active">Dashbaord / {{title}}</li>
+</ol>
+
+<div class="panel panel-default">
+  <div class="panel-heading">{{title}}</div>
+
+  <form novalidate autocomplete="off" (ngSubmit)="f.valid && onSubmit()" #f="ngForm">
+    <div class="panel-body">
+      <div class="form-group col-md-12">
+        <label for="id">Title:</label>
+        <input type="text" class="form-control" ngModel #posttitle="ngModel" required minlength="4" name="posttitle">
+        <div class="error" *ngIf="posttitle.errors && (posttitle.dirty || posttitle.touched || formSubmitted) ">
+          <span *ngIf="posttitle.errors.required">
+            The name is required {{posttitle.dirty}} {{posttitle.touched}} {{f.submitted}}
+          </span>
+          <span *ngIf="posttitle.errors.minlength">
+            The Name must be at least 4 characters long.
+          </span>
+        </div>
+      </div>
+      <div class="form-group  col-md-12">
+        <label for="pwd">Description:</label>
+        <textarea class="form-control" ngModel #body="ngModel" required name="body"></textarea>
+        <div class="error" *ngIf="body.errors && (body.dirty || body.touched || formSubmitted)">
+          <span *ngIf="body.errors.required">
+            The body is required
+          </span>
+        </div>
+      </div>
+      <div class="form-group col-md-12">
+        <label for="id">Image:</label>
+        <input type="text" class="form-control" ngModel #file="ngModel" required name="file">
+        <div class="error" *ngIf="file.errors && (file.dirty || file.touched || formSubmitted)">
+          <span *ngIf="file.errors.required">
+            The Image is required
+          </span>
+        </div>
+      </div>
+      <div class="form-group col-md-12">
+        <button type="submit" class="btn btn-primary" (click)="restvalue()">Submit Post</button>
+        <!-- [disabled]="f.invalid" -->
+      </div>
+      <div class="form-group col-md-12">
+        <div class="alert alert-success" *ngIf="messageTrue">
+          <strong>Success!</strong> {{sucessMessage}}
+        </div>
+      </div>
+
+    </div>
+  </form>
+
+</div>
+<br>

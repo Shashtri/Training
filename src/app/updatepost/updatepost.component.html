@@ -1,0 +1,32 @@
+<ol class="breadcrumb">
+  <li class="breadcrumb-item active">Dashbaord / {{title}}</li>
+</ol>
+
+<div class="panel panel-default">
+  <div class="panel-heading">{{title}}</div>
+
+  <form (ngSubmit)="onSubmitUpdate()" #f="ngForm">
+    <div class="panel-body">
+      <div class="form-group col-md-12">
+        <label for="id">Title:</label>
+        <input type="text" class="form-control" ngModel #posttitle="ngModel" [(ngModel)]="empDataList.posttitle" name="posttitle">
+      </div>
+      <div class="form-group  col-md-12">
+        <label for="pwd">Description:</label>
+        <textarea rows="3" class="form-control" ngModel #body="ngModel" [(ngModel)]="empDataList.body" name="body"></textarea>
+      </div>
+      <div class="form-group col-md-12">
+        <label for="id">Image:</label>
+        <input type="text" class="form-control" ngModel #file="ngModel" [(ngModel)]="empDataList.img" name="file">
+      </div>
+      <div class="form-group col-md-12">
+        <button type="submit" class="btn btn-primary">Update Post</button>
+      </div>
+      <div class="form-group col-md-12">
+        <div class="alert alert-success" *ngIf="messageTrue">
+          <strong>Success!</strong> {{sucessMessage}}
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

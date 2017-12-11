@@ -1,0 +1,14 @@
+<div class="login-page">
+  <h2>Admin Login</h2>
+  <div class="form">
+    <form class="login-form"  #Lform="ngForm">
+      <input type="text" placeholder="username" name="username" #username="ngModel" ngModel/> 
+      <input type="text" placeholder="password" name="password"   #password="ngModel" ngModel/>
+      <button class="btn btn-primary" (click)="formSubmit()">Login</button>
+      <p class="message">Not registered?
+        <a href="#">Create an account</a>
+      </p>
+    </form>
+  </div>
+  <div class="errorMesage">{{erroMessage}}</div>
+</div>

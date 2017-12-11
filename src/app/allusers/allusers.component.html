@@ -1,0 +1,32 @@
+<ol class="breadcrumb">
+  <li class="breadcrumb-item active">Dashbaord / {{title}}</li>
+</ol>
+<div class="panel panel-default">
+  <div class="panel-heading">{{title}}</div>
+  <table class="table table-bordered table-hover table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Gender</th>
+        <th>countries</th>
+        <th>Hobbies</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of userList">
+        <td>{{item.name}}</td>
+        <td>{{item.email}}</td>
+        <td>{{item.phone}}</td>
+        <td>{{item.username}}</td>
+        <td>{{item.password}}</td>
+        <td>{{item.gender}}</td>
+        <td>{{item.countries}}</td>
+        <td>{{item.hobbies}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

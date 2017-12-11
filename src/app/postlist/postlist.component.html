@@ -1,0 +1,47 @@
+<ol class="breadcrumb">
+  <li class="breadcrumb-item active">Dashbaord / {{title}}</li>
+</ol>
+<div class="panel panel-default">
+  <div class="panel-heading">{{title}}</div>
+  <div class="panel-body">
+    <div *ngFor="let users of empDataList">
+      <div class="col-md-2 col-sm-2 hidden-xs">
+        <figure class="thumbnail">
+          <img class="img-responsive" src="{{users.img}}" style="max-width: 80px; height: 80px;">
+        </figure>
+      </div>
+      <div class="col-md-10 col-sm-10">
+        <div class="panel panel-default arrow left">
+          <div class="panel-body">
+            <header class="text-left">
+              <div class="comment-user">
+                <a [routerLink]="['../postdetail', users.id ]">
+                  <i class="fa fa-user"></i> {{users.posttitle}}</a>
+              </div>
+            </header>
+
+            <div class="comment-post">
+              <strong>Post Date:</strong> {{users.date | date: 'M/d/yy, h:mm a'}}
+              <p>
+                {{users.body | limitcontent : 100}}
+                <a [routerLink]="['../postdetail', users.id ]">Readmore</a>
+              </p>
+            </div>
+
+            <!-- <span class="comment">
+              <strong>Comments:</strong>
+              <ul *ngFor="let ravi of commentsAll">
+                <li *ngIf="ravi.postid==users.id">{{ravi.commentdesc}}</li>
+              </ul>
+              <div>
+                <input type="hidden" name="commentpid"  ngModel #commentpid="ngModel" value="{{users.id}}">
+                <textarea class="form-control" name="commentdesc" [(ngModel)]="commentdes"></textarea>
+                <button type="submit" class="btn btn-primary" (click)="createComment()">Submit Post</button>
+              </div>
+            </span> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

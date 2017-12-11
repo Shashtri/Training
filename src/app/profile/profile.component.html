@@ -1,0 +1,30 @@
+<ol class="breadcrumb">
+  <li class="breadcrumb-item active">Dashbaord / {{title}}</li>
+</ol>
+<div class="panel panel-default">
+  <div class="panel-heading">{{title}}</div>
+
+  <form (ngSubmit)="profileUpdate()" #f="ngForm">
+    <div class="panel-body">
+      <div class="form-group col-md-12">
+        <label for="id">Title:</label>
+        <input type="text" class="form-control" [(ngModel)]="profiledata.fname" name="fname">
+      </div>
+      <div class="form-group  col-md-12">
+        <label for="pwd">Email:</label>
+        <input type="text" class="form-control" [(ngModel)]="profiledata.email" name="email">
+      </div>
+      <div class="form-group col-md-12">
+        <label for="id">Phone:</label>
+        <input type="text" class="form-control" [(ngModel)]="profiledata.phone" name="phone">
+      </div>
+      <div class="form-group col-md-12">
+        <label for="id">Address:</label>
+        <textarea class="form-control" [(ngModel)]="profiledata.address" name="address"></textarea>
+      </div>
+      <div class="form-group col-md-12">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>

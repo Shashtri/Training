@@ -1,0 +1,32 @@
+<ol class="breadcrumb">
+  <li class="breadcrumb-item active">Dashbaord / {{title}}</li>
+</ol>
+<div class="panel panel-default">
+  <div class="panel-heading">Post Detail View</div>
+  <div class="panel-body">
+    <div>
+      <div class="col-md-2 col-sm-2 hidden-xs">
+        <figure class="thumbnail">
+          <img class="img-responsive" src="{{empDataList.img}}" style="max-width: 80px; height: 80px;">
+        </figure>
+      </div>
+      <div class="col-md-10 col-sm-10">
+        <div class="panel panel-default arrow left">
+          <div class="panel-body">
+            <header class="text-left">
+              <div class="comment-user">
+                <i class="fa fa-user"></i> {{empDataList.posttitle}}</div>
+            </header>
+            <div class="comment-post">
+              <p>
+                {{empDataList.body}}
+              </p>
+            </div>
+            <a href="javascript:void(0)" (click)="delete()" class="btn btn-danger">Delete</a>
+            <a [routerLink]="['../../updatepost', empDataList.id ]" class="btn btn-success">Update</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

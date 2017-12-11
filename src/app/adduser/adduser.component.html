@@ -1,0 +1,64 @@
+<ol class="breadcrumb">
+  <li class="breadcrumb-item active">Dashbaord / {{title}}</li>
+</ol>
+
+<div class="panel panel-default">
+  <div class="panel-heading">{{title}}</div>
+
+  <form name="MyForm" [formGroup]="userForm" (ngSubmit)="userForm.valid && onSubmit()" novalidate autocomplete="off">
+    <div class="panel-body">
+      <div class="form-group col-md-6">
+        <label for="id">Name:</label>
+        <input type="text" class="form-control" name="name" formControlName="name">
+        <span *ngIf="!userForm.get('name').valid && userForm.get('name').touched" class="error">Please enter valid Name</span>
+      </div>
+      <div class="form-group  col-md-6">
+        <label for="pwd">Email:</label>
+        <input type="email" class="form-control" name="email" formControlName="email">
+        <span *ngIf="!userForm.get('email').valid && userForm.get('email').touched" class="error">Please enter valid Email Id</span>
+      </div>
+      <div class="form-group  col-md-6">
+        <label for="pwd">Phone:</label>
+        <input type="email" class="form-control" name="phone" formControlName="phone">
+        <span *ngIf="!userForm.get('phone').valid && userForm.get('phone').touched" class="error">Please enter valid Phone</span>
+      </div>
+      <div class="form-group  col-md-6">
+        <label for="pwd">Username:</label>
+        <input type="email" class="form-control" name="username" formControlName="username">
+        <span *ngIf="!userForm.get('username').valid && userForm.get('username').touched" class="error">Please enter valid Phone</span>
+      </div>
+      <div class="form-group  col-md-6">
+        <label for="pwd">Password:</label>
+        <input type="text" class="form-control" name="password" formControlName="password">
+        <span *ngIf="!userForm.get('password').valid && userForm.get('password').touched" class="error">Please enter valid Phone</span>
+      </div>
+      <div class="form-group  col-md-6">
+        <label for="pwd">Confirm Password:</label>
+        <input type="text" class="form-control" ngModel name="cpassword" formControlName="cpassword">
+        <span *ngIf="!userForm.get('cpassword').valid && userForm.get('cpassword').touched" class="error">Please enter valid Phone</span>
+      </div>
+      <div class="form-group  col-md-6">
+        <label> Gender</label>
+        <div class="radio-inline" *ngFor="let me of gender">
+            <label><input type="radio" formControlName="gender" [value]="me">{{me}}</label>
+        </div>
+      </div>
+      <div class="from-group col-md-6">
+        <label>Countries</label>
+        <select class="form-control" formControlName="countries">
+          <option *ngFor="let c of countries" [value]="c">{{c}}</option>
+        </select>
+      </div>
+      <div class="from-group col-md-6">
+        <label>Hobbies</label>
+        <div *ngFor="let hobb of hobbies">
+          <label>
+            <input formControlName="hobbies" type="checkbox" [ngModel]="hobb"> {{hobb}} </label>
+        </div>
+      </div>
+    </div>
+    <div class="panel-heading">
+      <button type="submit" class="btn btn-default">Submit</button>
+    </div>
+  </form>
+</div>
